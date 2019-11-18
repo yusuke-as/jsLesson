@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>jsレッスン</title>
+</head>
+<body>
+	<table id="table" border="1"></table>
+	<script>
+	window.onload=function(){
+		var table=document.getElementById('table');
+		for(var i=1;i<=9;i++){
+			var tr=document.createElement('tr');
+			for(var j=1;j<=9;j++){
+				var td=document.createElement('td');
+				td.textContent=`${i}*${j}=${i*j}`;
+				tr.appendChild(td);
+			}
+			table.appendChild(tr);
+		}
+	}
+
+	</script>
+</body>
+</html>

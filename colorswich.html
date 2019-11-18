@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>ColorChange</title>
+<style>
+div{
+    width:200px;
+    height:200px;
+    background:red;
+}
+div.blue{
+    background:blue;
+}
+</style>
+</head>
+<body>
+    <div id="box"></div>
+<script>
+'use strict';
+{
+    const box=document.getElementById("box");
+	let timerId=NaN;
+	box.addEventListener("click",function(){
+		let count=0;
+		timerId=setInterval(function(){
+			box.classList.toggle("blue");
+			count++;
+			if(count>5){
+				clearInterval(timerId);
+			}
+		},500);
+	});
+	/*let timerId=NaN;
+    box.addEventListener("click",function(){
+		if(!timerId){
+			//一度だけはsetTimeout
+			timerId=setTimeout(function(){
+				box.classList.toggle('blue');
+				timerId=NaN;
+			},2000);
+		}
+    });
+	*/
+}
+</script>
+</body>
+</html>

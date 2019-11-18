@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>pairpro</title>
+</head>
+<body>
+	<h1>PairPro</h1>
+	<button type="button" id="btn">組み合わせ作成</button>
+	<table id="result" border="1">
+	<tr><td></td><th>D</th><th>N</th></tr>
+	</table>
+<script>
+{
+	const member=["芦刈","木村","小林","佐野","長沢","山田"];
+	if(member.length %2 !=0){
+		member.push('先生');
+	}
+	const result=document.getElementById("result");
+	
+	function shuffle(){
+		let i=member.length;
+		while(i){
+			let index=Math.floor(Math.random()*i--);
+			var temp=member[index];
+			member[index]=member[i];
+			member[i]=temp;
+		}
+	}
+
+	btn.addEventListener("click",function(){
+		result.textContent=null;
+		shuffle();
+		let count=0;
+		for(let i=0;i<3;i++){
+			let tr=document.createElement("tr");
+			for(let j=0;j<3;j++){
+				let td=document.createElement("td");
+				if(j==0){
+					td.textContent=i+1;
+				}else{
+					td.textContent=member[count++];
+				}
+				tr.appendChild(td);
+			}
+			result.appendChild(tr);
+		}
+	});
+}
+</script>
+</body>
+</html>

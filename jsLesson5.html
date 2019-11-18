@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>jsレッスン</title>
+</head>
+<body>
+	<h1>平均の計算</h1>
+	<input type="number" id="num" placeholder="enter a number">
+	<button onclick="add()">Add</button>
+	<button onclick="btCalc()">Calc!</button>
+	<div id="msg"></div>
+	<script>
+		var nums=[];
+		var eleNum=document.getElementById("num");
+		var eleMsg=document.getElementById("msg");
+		function add(){
+			var num=parseInt(eleNum.value);
+			nums.push(num);
+			eleMsg.textContent=num+"を配列に追加";
+		}
+		function btCalc(){
+			var sum=0;
+			for(var i=0;i<nums.length;i++){
+				sum+=nums[i];
+			}
+			var msg=`[${nums.toString()}]の平均は${sum/nums.length}です。`;
+			eleMsg.textContent=msg;
+		}
+	</script>
+</body>
+</html>
